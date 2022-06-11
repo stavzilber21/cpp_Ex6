@@ -12,9 +12,7 @@ namespace ball{
         Leauge();
         Leauge(vector<Team*> new_team);
         void Leauge_in_random();
-        void Leauge_half(vector<Team*> other_team_list);
-        void initial_leauge();
-
+        void rand_init(vector<Team*> new_team);
     };
 }
 

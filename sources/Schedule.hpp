@@ -4,15 +4,15 @@
 #include <string>
 #include "Team.hpp"
 #include "Leauge.hpp"
+#include "Game.hpp"
 using namespace std;
 namespace ball{
     class Schedule {
-    private:
-        vector<Team*> teams;
+
     public:
+        vector<Team*> teams;
         Schedule(vector<Team*> other);
-        Schedule();
-        ~Schedule();
+        vector<Game*> schedule ();
 
     };
 }

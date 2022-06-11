@@ -8,8 +8,9 @@
 using namespace std;
 namespace ball {
 
-    Game::Game(){
-
+    Game::Game(Team* in,Team* out ){
+        this->team_in=in;
+        this->team_out=out;
     }
 
     void Game::start_game(){
