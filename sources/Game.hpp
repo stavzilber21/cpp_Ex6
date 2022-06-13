@@ -9,10 +9,9 @@ namespace ball {
     public:
         Team *team_in;
         Team *team_out;
-        int result;
         Game(Team* in,Team* out );
         void points();
-        string winner();
-        void start_game();
+        void winner();
+        int start_game(double min, double max);
     };
 }

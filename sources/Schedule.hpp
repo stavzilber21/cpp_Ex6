@@ -11,6 +11,7 @@ namespace ball{
 
     public:
         vector<Team*> teams;
+        int num_of_teko;
         Schedule(vector<Team*> other);
         vector<Game*> schedule ();
 

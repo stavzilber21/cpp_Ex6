@@ -1,9 +1,7 @@
-#pragma once
+//#pragma once
 #include "Schedule.hpp"
 #include <iostream>
 #include <vector>
-#include <string>
-#include "Team.hpp"
 #include "Leauge.hpp"
 #include "Game.hpp"
 using namespace std;
@@ -28,6 +26,11 @@ namespace ball{
                 if(i!=j){
                     games.push_back(new Game(this->teams.at(j), this->teams.at(i)));
                 }
+            }
+        }
+        for (unsigned int i = 0; i < games.size(); ++i) {
+            if(games.at(i)->team_in->points_good==games.at(i)->team_out->points_good){
+                this->num_of_teko+=1;
             }
         }
         return games;

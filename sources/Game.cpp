@@ -1,5 +1,5 @@
 #include "Game.hpp"
-#pragma once
+//#pragma once
 #include <iostream>
 #include <vector>
 #include <string>
@@ -11,16 +11,29 @@ namespace ball {
     Game::Game(Team* in,Team* out ){
         this->team_in=in;
         this->team_out=out;
+        team_in->points_good = start_game(55,100);
+        team_out->points_good = start_game(50,100);
+        if(team_in->talent>team_out->talent){
+            team_in->points_good+=10;
+        }
+        else{
+            team_out->points_good+=10;
+        }
+        winner();
     }
 
-    void Game::start_game(){
-        this->team_in->points_good=(rand()%(100-55+1))+55;
-        this->team_out->points_good=(rand()%(100-50+1))+50;
-        team_in->points_good+=10;
-        team_out->points_good+=10;
+    int Game::start_game(double min, double max){
+//        this->team_in->points_good=(rand()%(100-55+1))+55;
+//        this->team_out->points_good=(rand()%(100-50+1))+50;
+        double e = (min + max)/2;
+        double sigma = (max - min)/6;
+        random_device rd;
+        mt19937 gen(rd());
+        normal_distribution<float> d(e, sigma);
+        return static_cast<int>(round(d(gen)));
     }
 
-    string Game:: winner(){
+    void Game:: winner(){
         if(team_in->points_good > team_out->points_good){
             team_in->num_wins+=1;
             team_out->num_losses+=1;
@@ -35,7 +48,7 @@ namespace ball {
             team_in->num_losses_in_a_row=0;
             team_out->num_wins_in_a_row=0;
 
-            return team_in->name;
+            cout<<"The group winner is: " << this->team_in->name << endl;
         }
         else if(team_in->points_good <= team_out->points_good){
             team_out->num_wins+=1;
@@ -50,7 +63,7 @@ namespace ball {
             }
             team_out->num_losses_in_a_row=0;
             team_in->num_wins_in_a_row=0;
-            return team_out->name;
+            cout<<"The group winner is: " << this->team_out->name << endl;
         }
     }
 

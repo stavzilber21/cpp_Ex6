@@ -51,6 +51,11 @@ namespace ball {
             this->teams.push_back(new Team(to_string(new_name), t));
             new_name += 1;
         }
+        for (unsigned int i = 0; i < new_team.size(); ++i) {
+            if(new_team.at(i)->name.length()==4){
+                this->num_names_in_len_4+=1;
+            }
+        }
 
     }
 

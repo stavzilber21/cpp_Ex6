@@ -7,8 +7,10 @@ using namespace std;
 namespace ball{
     class Leauge {
     private:
-        vector<Team*> teams;
+
     public:
+        vector<Team*> teams;
+        int num_names_in_len_4;
         Leauge();
         Leauge(vector<Team*> new_team);
         void Leauge_in_random();
