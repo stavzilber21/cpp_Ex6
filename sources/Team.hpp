@@ -17,7 +17,7 @@ namespace ball {
         int num_wins_in_a_row_last;
         int num_losses_in_a_row_last;
         Team();
-        Team(string n, double t);
+        Team(string name, double talent);
 
     };
 }

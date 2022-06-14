@@ -19,12 +19,14 @@ namespace ball {
         else{
             team_out->points_good+=10;
         }
+        cout<<"the points of team home: "<<endl;
+        cout<<team_in->points_good <<endl;
+        cout<<"the points of team out: " <<endl;
+        cout<<team_out->points_good<<endl;
         winner();
     }
 
     int Game::start_game(double min, double max){
-//        this->team_in->points_good=(rand()%(100-55+1))+55;
-//        this->team_out->points_good=(rand()%(100-50+1))+50;
         double e = (min + max)/2;
         double sigma = (max - min)/6;
         random_device rd;

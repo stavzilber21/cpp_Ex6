@@ -10,7 +10,6 @@ namespace ball {
         Team *team_in;
         Team *team_out;
         Game(Team* in,Team* out );
-        void points();
         void winner();
         int start_game(double min, double max);
     };
